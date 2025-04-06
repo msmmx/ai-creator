@@ -10,15 +10,12 @@ export async function POST(req: Request) {
     const body = await req.json()
     console.log("📥 받은 데이터:", body)
 
-    // content로 온 값을 dreamContent로 받기
-    const { content: dreamContent, mood, userName } = body
+    const { dreamContent, mood, userName, date } = body
 
-    // 필수 입력값 확인
-    if (!dreamContent || !mood || !userName) {
+    if (!dreamContent || !mood || !userName || !date) {
       return NextResponse.json({ error: "입력값 부족" }, { status: 400 })
     }
 
-    // OpenAI API 호출
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
@@ -37,6 +34,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       interpretation: result,
+      dreamContent,
+      mood,
+      userName,
+      date,
     })
   } catch (error) {
     console.error("🔴 OpenAI 호출 에러:", error)

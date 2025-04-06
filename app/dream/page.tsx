@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import Image from "next/image"
 import "./dream.css"
+import Image from "next/image"
 
 export default function DreamPage() {
   const [dreamContent, setDreamContent] = useState("")
   const [mood, setMood] = useState("")
   const [date, setDate] = useState("")
   const [userName, setUserName] = useState("")
-  const [loading, setLoading] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -34,15 +33,13 @@ export default function DreamPage() {
     }
 
     const dreamData = {
-      content: dreamContent,
+      dreamContent,
       mood,
-      date,
       userName,
+      date, // ✅ 빠지지 않게 포함!
     }
 
     try {
-      setLoading(true)
-
       const response = await fetch("/api/interpret", {
         method: "POST",
         headers: {
@@ -51,24 +48,22 @@ export default function DreamPage() {
         body: JSON.stringify(dreamData),
       })
 
-      const data = await response.json()
-      setLoading(false)
+      const result = await response.json()
 
-      if (!data.interpretation) {
-        alert("AI 해몽을 받아오지 못했어요. 다시 시도해주세요!")
+      if (!result?.interpretation) {
+        alert("AI 해몽을 가져오는 데 실패했어요.")
         return
       }
 
-      localStorage.setItem(
-        "currentDream",
-        JSON.stringify({ ...dreamData, interpretation: data.interpretation })
-      )
+      localStorage.setItem("currentDream", JSON.stringify({
+        ...dreamData,
+        interpretation: result.interpretation,
+      }))
 
       router.push("/interpretation")
     } catch (err) {
-      setLoading(false)
-      alert("해몽 요청 중 오류가 발생했어요. 다시 시도해주세요.")
-      console.error(err)
+      console.error("❌ 해몽 요청 실패:", err)
+      alert("해몽을 불러오는 중 오류가 발생했어요.")
     }
   }
 
@@ -79,7 +74,6 @@ export default function DreamPage() {
       </div>
 
       <h1 className="dream-title">{userName} 님의 꿈을 기록해주세요!</h1>
-
       <form onSubmit={handleSubmit} className="dream-form">
         <div className="form-group">
           <label>📅 날짜를 선택해주세요</label>
@@ -121,9 +115,7 @@ export default function DreamPage() {
           />
         </div>
 
-        <button type="submit" className="dream-button" disabled={loading}>
-          {loading ? "해몽 중..." : "해몽하기"}
-        </button>
+        <button type="submit" className="dream-button">해몽하기</button>
       </form>
     </div>
   )

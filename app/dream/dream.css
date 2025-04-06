@@ -1,16 +1,23 @@
+/* app/dream/dream.css */
 .dream-container {
     min-height: 100vh;
     padding: 2rem;
-    background: linear-gradient(to bottom, #1e1b4b, #3b0764); /* 🌌 어두운 보라색 배경 */
+    background: linear-gradient(to bottom, #1e1b4b, #3b0764);
     color: white;
-    font-family: "Arial", sans-serif;
+    font-family: "Gowun Dodum", sans-serif;
   }
   
   .dream-title {
-    font-size: 2rem;
-    font-weight: bold;
     text-align: center;
-    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .dream-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
   
   .dream-form {
@@ -19,45 +26,21 @@
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
   
-
   .dream-input,
-.dream-textarea,
-.dream-select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #a78bfa;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 1rem;
-  appearance: none; /* select와 input의 기본 화살표 제거 */
-  box-sizing: border-box;
-}
-
-.dream-input::placeholder,
-.dream-textarea::placeholder {
-  color: #ddd6fe;
-}
-
-/* select의 화살표를 사용자 정의하거나 제거 */
-.dream-input[type="date"] {
-  /* 크로스브라우저 기본 input 스타일 맞추기 */
-  line-height: 1.5;
-  height: 48px;
-}
-
-/* select와 date가 줄 맞추도록 강제 높이 통일 */
-select.dream-input {
-  height: 48px;
-  line-height: 1.5;
-}
-
+  .dream-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #a78bfa;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+  }
   
   .dream-button {
     padding: 1rem;
@@ -66,17 +49,10 @@ select.dream-input {
     font-weight: bold;
     border: none;
     border-radius: 9999px;
-    cursor: pointer;
     transition: background 0.3s ease;
   }
   
   .dream-button:hover {
     background-color: #8b5cf6;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
   }
   
