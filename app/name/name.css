@@ -1,0 +1,91 @@
+.name-container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #1e1b4b, #6b21a8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 1rem;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    color: #d8b4fe;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    color: white;
+  }
+  
+  .name-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .name-card h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .name-card p {
+    color: #d8b4fe;
+    margin-bottom: 1.5rem;
+  }
+  
+  .name-card input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #a855f7;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .name-card input::placeholder {
+    color: #c084fc;
+  }
+  
+  .char-count {
+    text-align: right;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: #e9d5ff;
+  }
+  
+  .name-card button {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: #a855f7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .name-card button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .name-card button:hover:not(:disabled) {
+    background-color: #9333ea;
+  }
+  
