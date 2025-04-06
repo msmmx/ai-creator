@@ -1,7 +1,7 @@
 .interpret-container {
     min-height: 100vh;
     background: linear-gradient(to bottom, #1e1b4b, #3b0764);
-    color: white;
+    color: rgb(138, 0, 230);
     font-family: "Gowun Dodum", sans-serif;
     padding: 2rem;
   }
@@ -37,12 +37,13 @@
   .interpret-section h2 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: #c4b5fd;
   }
   
   .interpret-section p {
     white-space: pre-line;
     line-height: 1.6;
-    background-color: #9c84ff;
+    background-color: #f2eeff;
     border-radius: 10px;
     padding: 20px;
   }
@@ -67,5 +68,15 @@
   
   .btn:hover {
     background-color: #8b5cf6;
+  }
+  
+  .interpret-box {
+    background-color: rgb(83, 57, 140);
+    color: black;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
