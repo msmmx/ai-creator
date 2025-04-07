@@ -53,9 +53,9 @@ export default function InterpretationPage() {
       </div>
 
       <div className="interpret-buttons">
-        <button className="btn" onClick={handleDownload}>이미지 저장</button>
+        <button className="btn" onClick={handleDownload}>📸 이미지 저장</button>
         <Link href="/">
-          <button className="btn">홈으로</button>
+          <button className="btn">🌟홈으로</button>
         </Link>
       </div>
     </div>

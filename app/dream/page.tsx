@@ -124,7 +124,7 @@ export default function DreamPage() {
         {isLoading ? (
           <div style={{ textAlign: "center", color: "#a78bfa", fontSize: "1.1rem", padding: "1rem" }}>
             <Image src="/loading.gif" alt="로딩 중" width={50} height={50} />
-            <p>AI 해몽을 생성 중입니다...</p>
+            <p>{userName}의 꿈을 해몽하고 있어요🔮</p>
           </div>
         ) : (
           <button type="submit" className="dream-button">해몽하기</button>
