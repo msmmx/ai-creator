@@ -9,7 +9,7 @@ export default function SplashScreen() {
       <div className="splash-content">
         <div className="moon-icon"><Image src="/space.gif" alt="우주 아이콘" width={100} height={100} /></div>
         <h1 className="splash-title">꿈해몽 AI</h1>
-        <p className="splash-subtitle">당신의 꿈을 기록하고 해몽해보세요</p>
+        <p className="splash-subtitle">당신의 꿈을 기록하고 해몽해보세요🔮</p>
 
         <Link href="/name" className="start-button-wrapper">
           <button className="start-button">시작하기</button>
@@ -17,7 +17,7 @@ export default function SplashScreen() {
       </div>
 
       <div className="splash-footer">
-        {`Powered by OpenAI | ${new Date().getFullYear()}`}
+        {`Welcome to MSMMX WORLD | ${new Date().getFullYear()}`}
       </div>
     </div>
   )

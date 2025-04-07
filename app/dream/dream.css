@@ -1,4 +1,3 @@
-/* app/dream/dream.css */
 .dream-container {
     min-height: 100vh;
     padding: 2rem;
@@ -31,6 +30,14 @@
     gap: 1.5rem;
   }
   
+  /* ✅ form-group 정리 */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* ✅ input, select, textarea 통일된 높이 설정 */
   .dream-input,
   .dream-textarea {
     width: 100%;
@@ -40,6 +47,18 @@
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
     font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .dream-input {
+    height: 48px; /* ✅ select와 input 높이 동일 */
+    appearance: none;
+  }
+  
+  input[type="date"].dream-input {
+    padding-right: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
   
   .dream-button {
