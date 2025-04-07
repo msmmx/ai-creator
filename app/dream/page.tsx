@@ -10,6 +10,7 @@ export default function DreamPage() {
   const [mood, setMood] = useState("")
   const [date, setDate] = useState("")
   const [userName, setUserName] = useState("")
+  const [isLoading, setIsLoading] = useState(false) // ✅ 로딩 상태 추가
   const router = useRouter()
 
   useEffect(() => {
@@ -32,11 +33,13 @@ export default function DreamPage() {
       return
     }
 
+    setIsLoading(true) // ✅ 로딩 시작
+
     const dreamData = {
       dreamContent,
       mood,
       userName,
-      date, // ✅ 빠지지 않게 포함!
+      date,
     }
 
     try {
@@ -52,6 +55,7 @@ export default function DreamPage() {
 
       if (!result?.interpretation) {
         alert("AI 해몽을 가져오는 데 실패했어요.")
+        setIsLoading(false)
         return
       }
 
@@ -64,6 +68,7 @@ export default function DreamPage() {
     } catch (err) {
       console.error("❌ 해몽 요청 실패:", err)
       alert("해몽을 불러오는 중 오류가 발생했어요.")
+      setIsLoading(false)
     }
   }
 
@@ -106,10 +111,7 @@ export default function DreamPage() {
 
         <div className="form-group">
           <label>🌙 꿈 내용을 기록해주세요</label>
-          
           <textarea
-          
-      
             value={dreamContent}
             onChange={(e) => setDreamContent(e.target.value)}
             className="dream-textarea"
@@ -118,7 +120,15 @@ export default function DreamPage() {
           />
         </div>
 
-        <button type="submit" className="dream-button">해몽하기</button>
+        {/* ✅ 로딩 중일 때 로딩 메시지 보여주기 */}
+        {isLoading ? (
+          <div style={{ textAlign: "center", color: "#a78bfa", fontSize: "1.1rem", padding: "1rem" }}>
+            <Image src="/loading.gif" alt="로딩 중" width={50} height={50} />
+            <p>AI 해몽을 생성 중입니다...</p>
+          </div>
+        ) : (
+          <button type="submit" className="dream-button">해몽하기</button>
+        )}
       </form>
     </div>
   )

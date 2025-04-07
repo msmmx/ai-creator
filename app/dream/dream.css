@@ -56,3 +56,17 @@
     background-color: #8b5cf6;
   }
   
+  .loading-text {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #a78bfa;
+    padding-top: 1rem;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  
