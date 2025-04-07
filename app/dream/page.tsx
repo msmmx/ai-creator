@@ -106,7 +106,10 @@ export default function DreamPage() {
 
         <div className="form-group">
           <label>🌙 꿈 내용을 기록해주세요</label>
+          
           <textarea
+          
+      
             value={dreamContent}
             onChange={(e) => setDreamContent(e.target.value)}
             className="dream-textarea"
